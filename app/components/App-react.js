@@ -10,14 +10,13 @@ export default class App extends Component {
 	render() {
 		return <div>
 			<h2>All the tickets.</h2>
-			<div>
-				OneWayFWDTicket
-			</div>
-			<OneWayFWDTicket name={this.props.name} />
-			<OneWaySwapTicket name={this.props.name} />
-			<TimeOptionTicket name={this.props.name} />
-			<TwoWayFWDTicket name={this.props.name} />
-			<TwoWaySwapTicket name={this.props.name} />
+			<div>OneWayFWDTicket</div>
+			<OneWayFWDTicket />
+			<div>OneWaySwapTicket</div>
+			<OneWaySwapTicket />
 		</div>;
+		// <TimeOptionTicket name={this.props.name} />
+		// <TwoWayFWDTicket name={this.props.name} />
+		// <TwoWaySwapTicket name={this.props.name} />
 	}
 }

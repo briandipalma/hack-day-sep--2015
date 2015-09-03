@@ -1,11 +1,13 @@
 export const initialState = {
-	currencyPair: "EURUSD",
-	buySell: "BUY",
-	amount: 500,
 	dealtCurrency: "EUR",
+	currencyPair: "EURUSD",
+	firstLegState: {
+		amount: 500,
+		tenor: "SPOT",
+		buySell: "BUY",
+		settlementDate: "09/09/2015"
+	},
 	contraCurrency: "USD",
-	settlementDate: "09/09/2015",
-	tenor: "SPOT",
 	accounts: [
 		{value: "coca-cola", label: "Coca-Cola"},
 		{value: "sony", label: "Sony"}
