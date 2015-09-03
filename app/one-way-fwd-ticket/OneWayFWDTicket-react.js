@@ -1,13 +1,8 @@
 import React, {Component} from "react";
 
-import TicketHeader from "../components/TicketHeader-react";
-import BuySellToggle from "../components/BuySellToggle-react";
-import AmountInput from "../components/AmountInput-react";
-import DealtCurrencyToggle from "../components/DealtCurrencyToggle-react";
-import FXDateInput from "../components/FXDateInput-react";
-import AccountSelector from "../components/AccountSelector-react";
-import TicketBubbleMessage from "../components/TicketBubbleMessage-react";
-import GetStreamButton from "../components/GetStreamButton-react";
+import InitialOneWayFWDTicket from "./InitialOneWayFWDTicket-react";
+import RequestingOneWayFWDTicket from "./RequestingOneWayFWDTicket-react";
+import ExecutableOneWayFWDTicket from "./ExecutableOneWayFWDTicket-react";
 
 const initialState = {
 	currencyPair: "EURUSD",
@@ -24,6 +19,16 @@ const initialState = {
 	message: "You can buy 500.00 EUR against USD for settlement on 09/09/2015 (SPOT)"
 };
 
+const requestState = {
+	message: "Requesting stream"
+};
+
+const executeState = {
+	spotRate: "1.41802",
+	forwardPoints: "117",
+	timeRemaining: 30
+};
+
 let currentState = initialState;
 
 export default class OneWayFWDTicket extends Component {
@@ -36,31 +41,25 @@ export default class OneWayFWDTicket extends Component {
 	}
 
 	render() {
-		return <div>
-			<TicketHeader currencyPair={currentState.currencyPair} />
-			<div>
-				<BuySellToggle buySell={currentState.buySell} />
-				<AmountInput amount={currentState.amount} />
-				<DealtCurrencyToggle dealtCurrency={currentState.dealtCurrency} />
-			</div>
-			<div>
-				<label>FOR</label>
-				<span>{currentState.contraCurrency}</span>
-			</div>
-			<div>
-				<label>ON</label>
-				<FXDateInput settlementDate={currentState.settlementDate} tenor={currentState.tenor} />
-			</div>
-			<div>
-				<label>INTO</label>
-				<AccountSelector accounts={currentState.accounts}/>
-			</div>
-			<div>
-				<TicketBubbleMessage message={currentState.message}/>
-			</div>
-			<div>
-				<GetStreamButton streamRequested={() => this.setState({currentState: "requesting"})}/>
-			</div>
-		</div>;
+		if (this.state.currentState === "initial") {
+			const streamRequested = () => this.setState({currentState: "requesting"});
+
+			return <InitialOneWayFWDTicket currentState={initialState} streamRequested={streamRequested}/>;
+		} else if (this.state.currentState === "requesting") {
+			const cancelStream = () => this.setState({currentState: "initial"});
+			const requestingState = Object.assign({}, initialState, requestState);
+			setTimeout(() => this.setState({currentState: "executable"}), 1000);
+
+			return <RequestingOneWayFWDTicket currentState={requestingState} cancelStream={cancelStream}/>;
+		} else if (this.state.currentState === "executable") {
+			const cancelStream = () => this.setState({currentState: "initial"});
+			const executeTrade = () => this.setState({currentState: "executesent"});
+			const executableState = Object.assign({}, initialState, executeState);
+
+			return <ExecutableOneWayFWDTicket
+				currentState={executableState}
+				cancelStream={cancelStream}
+				executeTrade={executeTrade}/>;
+		}
 	}
 }
