@@ -17,22 +17,12 @@ export const requestState = Object.assign({}, initialState, {
 	message: "Requesting stream"
 });
 
-const executableState = Object.assign({}, initialState, {
+export const executeState = Object.assign({}, initialState, {
 	spotRate: "1.41802",
 	forwardPoints: "117",
 	timeRemaining: 30
 });
 
-// export const executeState = {
-// 	spotRate: "1.41802",
-// 	forwardPoints: "117",
-// 	timeRemaining: 30
-// };
-
 export const executeSentState = Object.assign({}, initialState, {
 	message: "Executing"
 });
-
-// const executeSentState = {
-// 	message: "Executing"
-// };

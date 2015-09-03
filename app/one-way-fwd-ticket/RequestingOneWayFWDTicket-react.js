@@ -6,7 +6,7 @@ import OneWayFWDTicketMessageBody from "./OneWayFWDTicketMessageBody-react";
 
 export default class RequestingOneWayFWDTicket extends Component {
 	render() {
-		return <div>
+		return <div className="OneWayFWDTicket">
 			<TicketHeader currencyPair={this.props.currentState.currencyPair} />
 			<OneWayFWDTicketSetup currentState={this.props.currentState} />
 			<OneWayFWDTicketMessageBody message={this.props.currentState.message} />

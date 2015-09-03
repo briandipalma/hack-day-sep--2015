@@ -5,7 +5,7 @@ import TicketConfirmation from "../components/TicketConfirmation-react";
 
 export default class TradeConfirmedOneWayFWDTicket extends Component {
 	render() {
-		return <div>
+		return <div className="OneWayFWDTicket">
 			<TicketHeader currencyPair={this.props.currentState.currencyPair} />
 			<TicketConfirmation />
 			<button onClick={this.props.newTrade}>New Trade</button>

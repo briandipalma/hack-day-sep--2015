@@ -6,7 +6,7 @@ import ExecutableOneWayFWDTicketBody from "./ExecutableOneWayFWDTicketBody-react
 
 export default class ExecutableOneWayFWDTicket extends Component {
 	render() {
-		return <div>
+		return <div className="OneWayFWDTicket">
 			<TicketHeader currencyPair={this.props.currentState.currencyPair} />
 			<OneWayFWDTicketSetup currentState={this.props.currentState} />
 			<ExecutableOneWayFWDTicketBody

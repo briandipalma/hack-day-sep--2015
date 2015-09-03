@@ -5,6 +5,7 @@ import InitialOneWayFWDTicket from "./InitialOneWayFWDTicket-react";
 import RequestingOneWayFWDTicket from "./RequestingOneWayFWDTicket-react";
 import ExecutableOneWayFWDTicket from "./ExecutableOneWayFWDTicket-react";
 import TradeConfirmedOneWayFWDTicket from "./TradeConfirmedOneWayFWDTicket-react";
+import "./OneWayFWDTicket.css";
 
 import {initialState, requestState, executeState, executeSentState} from "./ticketStates";
 

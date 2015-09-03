@@ -6,9 +6,11 @@ import DealtCurrencyToggle from "../components/DealtCurrencyToggle-react";
 import FXDateInput from "../components/FXDateInput-react";
 import AccountSelector from "../components/AccountSelector-react";
 
-export default class OneWayFWDTicket extends Component {
+import "./OneWayFWDTicketSetup.css";
+
+export default class OneWayFWDTicketSetup extends Component {
 	render() {
-		return <div>
+		return <div className="OneWayFWDTicketSetup">
 			<div>
 				<BuySellToggle buySell={this.props.currentState.buySell} />
 				<AmountInput amount={this.props.currentState.amount} />
