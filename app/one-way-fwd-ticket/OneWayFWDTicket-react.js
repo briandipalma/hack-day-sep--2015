@@ -1,8 +1,10 @@
+/* eslint-disable func-style*/
 import React, {Component} from "react";
 
 import InitialOneWayFWDTicket from "./InitialOneWayFWDTicket-react";
 import RequestingOneWayFWDTicket from "./RequestingOneWayFWDTicket-react";
 import ExecutableOneWayFWDTicket from "./ExecutableOneWayFWDTicket-react";
+import TradeConfirmedOneWayFWDTicket from "./TradeConfirmedOneWayFWDTicket-react";
 
 const initialState = {
 	currencyPair: "EURUSD",
@@ -29,7 +31,9 @@ const executeState = {
 	timeRemaining: 30
 };
 
-let currentState = initialState;
+const executeSentState = {
+	message: "Executing"
+};
 
 export default class OneWayFWDTicket extends Component {
 	constructor(props) {
@@ -60,6 +64,16 @@ export default class OneWayFWDTicket extends Component {
 				currentState={executableState}
 				cancelStream={cancelStream}
 				executeTrade={executeTrade}/>;
+		} else if (this.state.currentState === "executesent") {
+			const cancelStream = () => this.setState({currentState: "initial"});
+			const executingState = Object.assign({}, initialState, executeSentState);
+			setTimeout(() => this.setState({currentState: "tradeconfirmed"}), 1000);
+
+			return <RequestingOneWayFWDTicket currentState={executingState} cancelStream={cancelStream}/>;
+		} else if (this.state.currentState === "tradeconfirmed") {
+			const cancelStream = () => this.setState({currentState: "initial"});
+
+			return <TradeConfirmedOneWayFWDTicket currentState={initialState} newTrade={cancelStream}/>
 		}
 	}
 }
