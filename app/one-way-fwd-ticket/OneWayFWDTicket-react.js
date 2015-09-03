@@ -6,34 +6,7 @@ import RequestingOneWayFWDTicket from "./RequestingOneWayFWDTicket-react";
 import ExecutableOneWayFWDTicket from "./ExecutableOneWayFWDTicket-react";
 import TradeConfirmedOneWayFWDTicket from "./TradeConfirmedOneWayFWDTicket-react";
 
-const initialState = {
-	currencyPair: "EURUSD",
-	buySell: "BUY",
-	amount: 500,
-	dealtCurrency: "EUR",
-	contraCurrency: "USD",
-	settlementDate: "09/09/2015",
-	tenor: "SPOT",
-	accounts: [
-		{value: "coca-cola", label: "Coca-Cola"},
-		{value: "sony", label: "Sony"}
-	],
-	message: "You can buy 500.00 EUR against USD for settlement on 09/09/2015 (SPOT)"
-};
-
-const requestState = {
-	message: "Requesting stream"
-};
-
-const executeState = {
-	spotRate: "1.41802",
-	forwardPoints: "117",
-	timeRemaining: 30
-};
-
-const executeSentState = {
-	message: "Executing"
-};
+import {initialState, requestState, executeState, executeSentState} from "./ticketStates";
 
 export default class OneWayFWDTicket extends Component {
 	constructor(props) {
@@ -45,34 +18,28 @@ export default class OneWayFWDTicket extends Component {
 	}
 
 	render() {
+		const cancelStream = () => this.setState({currentState: "initial"});
+
 		if (this.state.currentState === "initial") {
 			const streamRequested = () => this.setState({currentState: "requesting"});
 
 			return <InitialOneWayFWDTicket currentState={initialState} streamRequested={streamRequested}/>;
 		} else if (this.state.currentState === "requesting") {
-			const cancelStream = () => this.setState({currentState: "initial"});
-			const requestingState = Object.assign({}, initialState, requestState);
 			setTimeout(() => this.setState({currentState: "executable"}), 1000);
 
-			return <RequestingOneWayFWDTicket currentState={requestingState} cancelStream={cancelStream}/>;
+			return <RequestingOneWayFWDTicket currentState={requestState} cancelStream={cancelStream}/>;
 		} else if (this.state.currentState === "executable") {
-			const cancelStream = () => this.setState({currentState: "initial"});
 			const executeTrade = () => this.setState({currentState: "executesent"});
-			const executableState = Object.assign({}, initialState, executeState);
 
 			return <ExecutableOneWayFWDTicket
-				currentState={executableState}
+				currentState={executeState}
 				cancelStream={cancelStream}
 				executeTrade={executeTrade}/>;
 		} else if (this.state.currentState === "executesent") {
-			const cancelStream = () => this.setState({currentState: "initial"});
-			const executingState = Object.assign({}, initialState, executeSentState);
 			setTimeout(() => this.setState({currentState: "tradeconfirmed"}), 1000);
 
-			return <RequestingOneWayFWDTicket currentState={executingState} cancelStream={cancelStream}/>;
+			return <RequestingOneWayFWDTicket currentState={executeSentState} cancelStream={cancelStream}/>;
 		} else if (this.state.currentState === "tradeconfirmed") {
-			const cancelStream = () => this.setState({currentState: "initial"});
-
 			return <TradeConfirmedOneWayFWDTicket currentState={initialState} newTrade={cancelStream}/>
 		}
 	}
