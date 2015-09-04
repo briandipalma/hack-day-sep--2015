@@ -1,3 +1,99 @@
 .OneWaySwapTicketSetup {
-	height: 280px;
+	flex-basis: 56%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+}
+
+.OneWaySwapTicketSetupLabel {
+	font-weight: bold;
+	font-size: 18px;
+	color: grey;
+	margin-top: 4px;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetup {
+	flex-grow: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.OneWaySwapTicketSetup .OneWaySwapTicketSetupLock {
+	float: right;
+	margin-right: 15px;
+}
+
+.OneWaySwapTicketSetup .OneWaySecondLegSetup {
+	flex-grow: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.OneWaySwapTicketSetup .OneWaySwapTicketSetupIntoRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupAmountRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupAmountRow .BuySellToggleHolder {
+	width: 15%;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupAmountRow .AmountInputHolder {
+	width: 70%;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupAmountRow .AmountInput {
+	width: 95%;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupOnRow .FXDateInputHolder {
+	width: 70%;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupOnRow .FXDateInput {
+	width: 95%;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupForRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupForRow label {
+	width: 15%;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupOnRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWaySwapTicketSetup .OneWayLegSetupOnRow label {
+	width: 15%;
+}
+
+.OneWaySwapTicketSetup .OneWaySwapTicketSetupIntoRow label {
+	width: 15%;
+}
+
+.OneWaySwapTicketSetup .OneWaySecondLegSetup .OneWayLegSetupAmountRow label {
+	width: 15%;
+}
+
+.OneWaySwapTicketSetup .OneWaySecondLegSetup .AmountInput {
+	width: 67%;
+	margin-right: 5px;
+}
+
+.OneWaySwapTicketSetup .OneWaySecondLegSetup .OneWayLegSetupOnRow .FXDateInput {
+	width: 67%;
 }

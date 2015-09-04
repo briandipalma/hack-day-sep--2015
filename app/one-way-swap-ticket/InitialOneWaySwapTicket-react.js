@@ -10,8 +10,12 @@ export default class InitialOneWaySwapTicket extends Component {
 		return <div className="OneWaySwapTicket">
 			<TicketHeader currencyPair={this.props.currentState.currencyPair} />
 			<OneWaySwapTicketSetup currentState={this.props.currentState} />
-			<TicketBubbleMessage message={this.props.currentState.message} />
-			<GetStreamButton streamRequested={this.props.streamRequested}/>
+			<div className="OneWaySwapTicketBody">
+				<TicketBubbleMessage message={this.props.currentState.message} />
+			</div>
+			<div className="OneWaySwapTicketFooter">
+				<GetStreamButton streamRequested={this.props.streamRequested}/>
+			</div>
 		</div>;
 	}
 }
