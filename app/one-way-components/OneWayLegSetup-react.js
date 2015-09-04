@@ -11,12 +11,18 @@ export default class OneWayLegSetup extends Component {
 		return <div className="OneWayLegSetup">
 				<div className="OneWayLegSetupAmountRow">
 					<div className="BuySellToggleHolder">
-						<BuySellToggle buySell={this.props.buySell} />
+						<BuySellToggle
+							buySell={this.props.buySell}
+							disabled={this.props.disabled} />
 					</div>
 					<div className="AmountInputHolder">
-						<AmountInput amount={this.props.amount} />
+						<AmountInput
+							amount={this.props.amount}
+							disabled={this.props.disabled} />
 					</div>
-					<DealtCurrencyToggle dealtCurrency={this.props.currentState.dealtCurrency} />
+					<DealtCurrencyToggle
+						dealtCurrency={this.props.currentState.dealtCurrency}
+						disabled={this.props.disabled} />
 				</div>
 				<div className="OneWayLegSetupForRow">
 					<label>FOR</label>
@@ -27,7 +33,8 @@ export default class OneWayLegSetup extends Component {
 					<div className="FXDateInputHolder">
 						<FXDateInput
 							settlementDate={this.props.settlementDate}
-							tenor={this.props.tenor} />
+							tenor={this.props.tenor}
+							disabled={this.props.disabled} />
 					</div>
 				</div>
 			</div>;

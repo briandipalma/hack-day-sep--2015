@@ -14,10 +14,13 @@ export default class OneWayFWDTicketSetup extends Component {
 		return <div className="OneWayFWDTicketSetup">
 			<OneWayLegSetup
 				{...this.props.currentState.firstLegState}
-				currentState={this.props.currentState} />
+				currentState={this.props.currentState}
+				disabled={this.props.disabledInputs} />
 			<div className="OneWayFWDTicketSetupIntoRow">
 				<label>INTO</label>
-				<AccountSelector accounts={this.props.currentState.accounts}/>
+				<AccountSelector
+					accounts={this.props.currentState.accounts}
+					disabled={this.props.disabledInputs} />
 			</div>
 		</div>;
 	}

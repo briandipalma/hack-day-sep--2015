@@ -27,12 +27,6 @@ export const executeState = () => {
 	});
 }
 
-// export const executeState = Object.assign({}, initialState, {
-// 	spotRate: "1.41802",
-// 	forwardPoints: "117",
-// 	timeRemaining: 30
-// });
-
 export const executeSentState = Object.assign({}, initialState, {
 	message: "Executing"
 });
