@@ -20,3 +20,14 @@ export const initialState = {
 	],
 	message: "You can B/S 500.00 EUR against USD for settlement on 09/09/2015 (SPOT) and 15/09/2015 (1W)"
 };
+
+export const requestState = Object.assign({}, initialState, {
+	message: "Requesting stream"
+});
+
+export const executeState = Object.assign({}, initialState, {
+	spotRate: "1.41802",
+	nearLegPoints: 0,
+	farLegPoints: 112,
+	timeRemaining: 30
+});

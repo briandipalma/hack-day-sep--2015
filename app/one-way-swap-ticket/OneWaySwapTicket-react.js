@@ -2,8 +2,8 @@
 import React, {Component} from "react";
 
 import InitialOneWaySwapTicket from "./InitialOneWaySwapTicket-react";
-// import RequestingOneWaySwapTicket from "./RequestingOneWaySwapTicket-react";
-// import ExecutableOneWayFWDTicket from "./ExecutableOneWayFWDTicket-react";
+import RequestingOneWaySwapTicket from "./RequestingOneWaySwapTicket-react";
+import ExecutableOneWaySwapTicket from "./ExecutableOneWaySwapTicket-react";
 // import TradeConfirmedOneWayFWDTicket from "./TradeConfirmedOneWayFWDTicket-react";
 import "./OneWaySwapTicket.css";
 
@@ -25,6 +25,17 @@ export default class OneWaySwapTicket extends Component {
 			const streamRequested = () => this.setState({currentState: "requesting"});
 
 			return <InitialOneWaySwapTicket currentState={initialState} streamRequested={streamRequested}/>;
+		} else if (this.state.currentState === "requesting") {
+			setTimeout(() => this.setState({currentState: "executable"}), 1000);
+
+			return <RequestingOneWaySwapTicket currentState={requestState} cancelStream={cancelStream}/>;
+		} else if (this.state.currentState === "executable") {
+			const executeTrade = () => this.setState({currentState: "executesent"});
+
+			return <ExecutableOneWaySwapTicket
+				currentState={executeState}
+				cancelStream={cancelStream}
+				executeTrade={executeTrade}/>;
 		}
 	}
 }
