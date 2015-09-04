@@ -1,0 +1,9 @@
+.GetStreamButton {
+	color: white;
+	font-weight: bold;
+	font-family: sans-serif;
+	border: none;
+	border-radius: 2px;
+	padding: 12px;
+	background: linear-gradient(135deg, rgb(77, 77, 77), rgb(105, 105, 105));
+}

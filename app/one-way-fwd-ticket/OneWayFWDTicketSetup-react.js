@@ -15,7 +15,7 @@ export default class OneWayFWDTicketSetup extends Component {
 			<OneWayLegSetup
 				{...this.props.currentState.firstLegState}
 				currentState={this.props.currentState} />
-			<div>
+			<div className="OneWayFWDTicketSetupIntoRow">
 				<label>INTO</label>
 				<AccountSelector accounts={this.props.currentState.accounts}/>
 			</div>

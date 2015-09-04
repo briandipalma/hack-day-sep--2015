@@ -1,0 +1,8 @@
+.TicketBubbleMessage {
+	margin: 8px;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 1px;
+	font-family: sans-serif;
+	background-color: rgb(230, 221, 178)
+}

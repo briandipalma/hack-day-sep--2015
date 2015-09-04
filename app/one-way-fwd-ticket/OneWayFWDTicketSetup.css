@@ -1,3 +1,68 @@
 .OneWayFWDTicketSetup {
-	height: 121px;
+	flex-basis: 38%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetup {
+	flex-grow: 3;
+	display: flex;
+	flex-direction: column;
+}
+
+.OneWayFWDTicketSetup .OneWayFWDTicketSetupIntoRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupAmountRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupAmountRow .BuySellToggleHolder {
+	width: 15%;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupAmountRow .AmountInputHolder {
+	width: 70%;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupAmountRow .AmountInput {
+	width: 95%;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupOnRow .FXDateInputHolder {
+	width: 70%;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupOnRow .FXDateInput {
+	width: 95%;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupForRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupForRow label {
+	width: 15%;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupOnRow {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.OneWayFWDTicketSetup .OneWayLegSetupOnRow label {
+	width: 15%;
+}
+
+.OneWayFWDTicketSetup .OneWayFWDTicketSetupIntoRow label {
+	width: 15%;
 }

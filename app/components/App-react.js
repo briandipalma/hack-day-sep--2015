@@ -8,12 +8,15 @@ import TwoWaySwapTicket from "../two-way-swap-ticket/TwoWaySwapTicket-react";
 
 export default class App extends Component {
 	render() {
-		return <div>
-			<h2>All the tickets.</h2>
-			<div>OneWayFWDTicket</div>
-			<OneWayFWDTicket />
-			<div>OneWaySwapTicket</div>
-			<OneWaySwapTicket />
+		return <div style={{display: "flex"}}>
+			<div style={{marginRight: "30px"}}>
+				<div style={{marginBottom: "10px"}}>OneWayFWDTicket</div>
+				<OneWayFWDTicket />
+			</div>
+			<div>
+				<div style={{marginBottom: "10px"}}>OneWaySwapTicket</div>
+				<OneWaySwapTicket />
+			</div>
 		</div>;
 		// <TimeOptionTicket name={this.props.name} />
 		// <TwoWayFWDTicket name={this.props.name} />

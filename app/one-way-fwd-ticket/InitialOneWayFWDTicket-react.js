@@ -10,8 +10,12 @@ export default class InitialOneWayFWDTicket extends Component {
 		return <div className="OneWayFWDTicket">
 			<TicketHeader currencyPair={this.props.currentState.currencyPair} />
 			<OneWayFWDTicketSetup currentState={this.props.currentState} />
-			<TicketBubbleMessage message={this.props.currentState.message} />
-			<GetStreamButton streamRequested={this.props.streamRequested}/>
+			<div className="OneWayFWDTicketBody">
+				<TicketBubbleMessage message={this.props.currentState.message} />
+			</div>
+			<div className="OneWayFWDTicketFooter">
+				<GetStreamButton streamRequested={this.props.streamRequested}/>
+			</div>
 		</div>;
 	}
 }
