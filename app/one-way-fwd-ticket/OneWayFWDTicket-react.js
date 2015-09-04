@@ -7,7 +7,7 @@ import ExecutableOneWayFWDTicket from "./ExecutableOneWayFWDTicket-react";
 import TradeConfirmedOneWayFWDTicket from "./TradeConfirmedOneWayFWDTicket-react";
 import "./OneWayFWDTicket.css";
 
-import {initialState, requestState, executeState, executeSentState} from "./ticketStates";
+import {initialState, requestState, executeState, executeSentState, tradeConfirmState} from "./ticketStates";
 
 export default class OneWayFWDTicket extends Component {
 	constructor(props) {
@@ -31,9 +31,14 @@ export default class OneWayFWDTicket extends Component {
 			return <RequestingOneWayFWDTicket currentState={requestState} cancelStream={cancelStream}/>;
 		} else if (this.state.currentState === "executable") {
 			const executeTrade = () => this.setState({currentState: "executesent"});
+			setTimeout(() => {
+				if (this.state.currentState === "executable") {
+					this.setState({currentState: "executable"})
+				}
+			}, 2000);
 
 			return <ExecutableOneWayFWDTicket
-				currentState={executeState}
+				currentState={executeState()}
 				cancelStream={cancelStream}
 				executeTrade={executeTrade}/>;
 		} else if (this.state.currentState === "executesent") {
@@ -41,7 +46,7 @@ export default class OneWayFWDTicket extends Component {
 
 			return <RequestingOneWayFWDTicket currentState={executeSentState} cancelStream={cancelStream}/>;
 		} else if (this.state.currentState === "tradeconfirmed") {
-			return <TradeConfirmedOneWayFWDTicket currentState={initialState} newTrade={cancelStream}/>
+			return <TradeConfirmedOneWayFWDTicket currentState={tradeConfirmState} newTrade={cancelStream}/>
 		}
 	}
 }

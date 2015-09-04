@@ -1,0 +1,15 @@
+.OneWayFWDTicketConfirmation {
+	flex-basis: 60%;
+	background-color: white;
+	margin: 5px 5px 0 5px;
+}
+
+.TradeConfirmedOneWayFWDTicketMessage {
+	background-color: white;
+	margin: 0 5px 0 5px;
+	flex-basis: 24%;
+}
+
+.OneWayFWDTicketFooter button {
+	margin-left: 10px;
+}
