@@ -8,7 +8,9 @@ export default class ExecutableOneWayFWDTicket extends Component {
 	render() {
 		return <div className="OneWayFWDTicket">
 			<TicketHeader currencyPair={this.props.currentState.currencyPair} />
-			<OneWayFWDTicketSetup currentState={this.props.currentState} />
+			<OneWayFWDTicketSetup
+				currentState={this.props.currentState}
+				disabledInputs={true} />
 			<ExecutableOneWayFWDTicketBody
 				currentState={this.props.currentState}
 				executeTrade={this.props.executeTrade}/>

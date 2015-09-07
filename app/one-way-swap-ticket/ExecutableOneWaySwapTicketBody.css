@@ -1,0 +1,10 @@
+.ExecutableOneWaySwapTicketBody {
+	margin: 4px;
+	flex-basis: 28%;
+	background-color: white;
+	display: flex;
+	justify-content: space-around;
+	padding: 5px;
+	box-sizing: border-box;
+	align-items: center;
+}

@@ -12,7 +12,11 @@ export default class RequestingOneWaySwapTicket extends Component {
 			<ExecutableOneWaySwapTicketBody
 				currentState={this.props.currentState}
 				executeTrade={this.props.executeTrade}/>
-			<button onClick={this.props.cancelStream}>Cancel</button>
+			<div className="OneWayFWDTicketFooter">
+				<button
+					className="GetStreamButton"
+					onClick={this.props.cancelStream}>Cancel</button>
+			</div>
 		</div>;
 	}
 }

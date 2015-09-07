@@ -4,9 +4,11 @@ import Spinner from "../components/Spinner-react";
 import OneWaySwapTicketTradePoints from "./OneWaySwapTicketTradePoints-react";
 import SwapExecuteButton from "../components/SwapExecuteButton-react";
 
-export default class ExecutableOneWayFWDTicket extends Component {
+import "./ExecutableOneWaySwapTicketBody.css"
+
+export default class ExecutableOneWaySwapTicketBody extends Component {
 	render() {
-		return <div>
+		return <div className="ExecutableOneWaySwapTicketBody">
 			<OneWaySwapTicketTradePoints
 				spotRate={this.props.currentState.spotRate}
 				nearLegPoints={this.props.currentState.nearLegPoints}
